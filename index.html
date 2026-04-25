@@ -2,114 +2,86 @@
 <html>
 <head>
     <title>DMSK Music</title>
+
     <style>
         body {
             margin: 0;
             font-family: Arial;
             background: #0f0f0f;
             color: white;
+            text-align: center;
         }
 
         header {
             background: black;
-            padding: 15px;
-            text-align: center;
-            font-size: 28px;
-            font-weight: bold;
-            color: #00ffcc;
-        }
-
-        nav {
-            text-align: center;
-            background: #111;
-            padding: 10px;
-        }
-
-        nav a {
-            color: white;
-            margin: 10px;
-            text-decoration: none;
-            font-size: 18px;
-        }
-
-        nav a:hover {
-            color: #00ffcc;
-        }
-
-        section {
             padding: 20px;
-            text-align: center;
+            font-size: 30px;
+            color: #00ffcc;
+            font-weight: bold;
         }
 
         h2 {
             color: #00ffcc;
         }
 
-        footer {
-            background: black;
-            text-align: center;
-            padding: 10px;
-            margin-top: 20px;
-            font-size: 14px;
-        }
-
-        .card {
+        .box {
             background: #1a1a1a;
-            padding: 15px;
-            margin: 15px auto;
+            margin: 20px auto;
+            padding: 20px;
             border-radius: 10px;
             width: 80%;
+        }
+
+        img {
+            border-radius: 10px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            background: black;
         }
     </style>
 </head>
 
 <body>
-<img src="WhatsApp Image 2026-04-25 at 8.19.59 PM" width="300">
 
-<br><br>
-
-<audio controls>
-  <source src="WhatsApp Audio 2026-04-25 at 8.19.49 PM" type="audio/mpeg">
-</audio>
 <header>DMSK Music 🎵</header>
 
-<nav>
-    <a href="#home">Home</a>
-    <a href="#music">Music</a>
-    <a href="#video">Videos</a>
-</nav>
+<div class="box">
+    <h2>Owner: Deepesh Rajak</h2>
+    <p>Welcome to my official music website 🎶</p>
+</div>
 
-<section id="home">
-    <h2>Welcome</h2>
-    <p>Welcome to DMSK Music</p>
-    <p><b>Owner:</b> Deepesh Rajak</p>
-</section>
+<div class="box">
+    <h2>My Image 🖼️</h2>
+    <img src="myphoto.jpg" width="250">
+</div>
 
-<section id="music">
-    <h2>Music Player 🎧</h2>
+<div class="box">
+    <h2>My Song 🎧</h2>
+    <audio controls>
+        <source src="mysong.mp3" type="audio/mpeg">
+    </audio>
+</div>
 
-    <div class="card">
-        <p>Sample Song</p>
-        <audio controls>
-            <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
-            Your browser does not support audio.
-        </audio>
-    </div>
+<div class="box">
+    <h2>My Video 🎬</h2>
+    <video width="300" controls>
+        <source src="myvideo.mp4" type="video/mp4">
+    </video>
+</div>
 
-</section>
-
-<section id="video">
-    <h2>Video Player 🎬</h2>
-
-    <div class="card">
-        <p>Sample Video</p>
-        <video width="300" controls>
-            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-            Your browser does not support video.
-        </video>
-    </div>
-
-</section>
+<div class="box">
+    <h2>Follow me on Instagram 📸</h2>
+    <a href="https://www.instagram.com/the.pesh.rjk" target="_blank" style="color:#00ffcc; font-size:18px;">
+        👉 Visit My Instagram
+    </a>
+</div>
 
 <footer>
     © 2026 DMSK Music | Owner: Deepesh Rajak
