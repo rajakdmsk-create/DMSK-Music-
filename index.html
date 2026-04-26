@@ -1,61 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>DMSK Music</title>
+<title>DMSK Music</title>
 
-    <meta name="google-site-verification" content="18Rl60NLEe5aZPppSUaK6zpJ172n7B9TROQWVka2E4w" />
+<meta name="google-site-verification" content="18Rl60NLEe5aZPppSUaK6zpJ172n7B9TROQWVka2E4w" />
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial;
-            background: #0f0f0f;
-            color: white;
-            text-align: center;
-        }
-
-        header {
-            background: black;
-            padding: 20px;
-            font-size: 30px;
-            color: #00ffcc;
-            font-weight: bold;
-        }
-
-        h2 {
-            color: #00ffcc;
-        }
-
-        .box {
-            background: #1a1a1a;
-            margin: 20px auto;
-            padding: 20px;
-            border-radius: 10px;
-            width: 80%;
-        }
-
-        img {
-            border-radius: 10px;
-            width: 250px;
-            box-shadow: 0 0 10px #00ffcc;
-        }
-
-        a {
-            color: #00ffcc;
-            text-decoration: none;
-            font-size: 18px;
-        }
-
-        iframe {
-            border-radius: 10px;
-        }
-
-        footer {
-            margin-top: 20px;
-            padding: 10px;
-            background: black;
-        }
-    </style>
+<style>
+body {margin:0; font-family:Arial; background:#0f0f0f; color:white; text-align:center;}
+header {background:black; padding:20px; font-size:30px; color:#00ffcc;}
+.box {background:#1a1a1a; margin:20px auto; padding:20px; border-radius:10px; width:80%;}
+img {width:250px; border-radius:10px; box-shadow:0 0 10px #00ffcc;}
+a {color:#00ffcc; text-decoration:none;}
+button {margin:5px; padding:10px; background:#00ffcc; border:none; cursor:pointer;}
+#enemy {width:50px;height:50px;background:red;position:absolute;top:200px;left:200px;}
+#chat {height:120px;overflow:auto;background:#111;padding:5px;}
+video {width:200px;border-radius:10px;}
+</style>
 </head>
 
 <body>
@@ -63,51 +23,94 @@
 <header>DMSK Music 🎵</header>
 
 <div class="box">
-    <h2>Owner: Deepesh Rajak</h2>
-    <p>I am Deepesh Rajak, owner of DMSK Music 🎶</p>
+<h2>Owner: Deepesh Rajak</h2>
+<p>I am Deepesh Rajak, owner of DMSK Music 🎶</p>
 </div>
 
 <div class="box">
-    <h2>My Photo 🖼️</h2>
-    <img src="photo.jpg" alt="Owner Photo">
+<h2>My Photo 🖼️</h2>
+<img src="photo.jpg">
 </div>
 
 <div class="box">
-    <h2>My Song 🎧</h2>
-    <audio controls>
-        <source src="song.mp3" type="audio/mpeg">
-    </audio>
+<h2>My Song 🎧</h2>
+<audio controls>
+<source src="song.mp3">
+</audio>
 </div>
 
 <div class="box">
-    <h2>My YouTube Videos 🎬</h2>
-    <iframe width="300" height="200"
-        src="https://www.youtube.com/embed?listType=user_uploads&list=UCVNvcqM3Rd5oeSpxH235wdw"
-        allowfullscreen>
-    </iframe>
+<h2>YouTube Videos 🎬</h2>
+<iframe width="300" height="200"
+src="https://www.youtube.com/embed?listType=user_uploads&list=UCVNvcqM3Rd5oeSpxH235wdw">
+</iframe>
 </div>
 
 <div class="box">
-    <h2>Follow Me 🌐</h2>
+<h2>Follow Me 🌐</h2>
+<a href="https://www.instagram.com/the.pesh.rjk" target="_blank">Instagram</a><br>
+<a href="https://www.youtube.com/channel/UCVNvcqM3Rd5oeSpxH235wdw" target="_blank">YouTube</a>
+</div>
 
-    <p>
-        📸 Instagram <br>
-        <a href="https://www.instagram.com/the.pesh.rjk" target="_blank">
-            👉 Open Instagram
-        </a>
-    </p>
+<!-- 🎮 GAME -->
+<div class="box">
+<h2>Mini Game 🎮</h2>
+<p>Click red box</p>
+<div id="enemy"></div>
+<p>Score: <span id="score">0</span></p>
+</div>
 
-    <p>
-        ▶️ YouTube Channel <br>
-        <a href="https://www.youtube.com/channel/UCVNvcqM3Rd5oeSpxH235wdw" target="_blank">
-            👉 Watch on YouTube
-        </a>
-    </p>
+<!-- 💬 CHAT -->
+<div class="box">
+<h2>Chat 💬</h2>
+<div id="chat"></div>
+<input id="msg">
+<button onclick="sendMsg()">Send</button>
+</div>
+
+<!-- 🎥 VIDEO CALL -->
+<div class="box">
+<h2>Video Call 🎥</h2>
+<video id="localVideo" autoplay muted></video><br>
+<button onclick="startCam()">Camera ON</button>
+<button onclick="stopCam()">Camera OFF</button>
 </div>
 
 <footer>
-    © 2026 DMSK Music | Owner: Deepesh Rajak
+© 2026 DMSK Music | Owner: Deepesh Rajak
 </footer>
+
+<script>
+// 🎮 GAME
+let enemy = document.getElementById("enemy");
+let score = 0;
+enemy.onclick = function(){
+score++;
+document.getElementById("score").innerText = score;
+enemy.style.top = Math.random()*400+"px";
+enemy.style.left = Math.random()*400+"px";
+};
+
+// 💬 CHAT
+function sendMsg(){
+let msg = document.getElementById("msg").value;
+let div = document.createElement("div");
+div.innerText = msg;
+chat.appendChild(div);
+msg="";
+}
+
+// 🎥 CAMERA
+let stream;
+async function startCam(){
+stream = await navigator.mediaDevices.getUserMedia({video:true,audio:true});
+localVideo.srcObject = stream;
+}
+function stopCam(){
+stream.getTracks().forEach(t=>t.stop());
+localVideo.srcObject=null;
+}
+</script>
 
 </body>
 </html>
